@@ -24,22 +24,21 @@
         android:id="@+id/book_search_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_height_50dp"
-        android:hint="@string/hint_text"
-        android:background="@color/colorPrimary"
-        android:inputType="textCapWords"
-        android:padding="@dimen/dimen_16dp"
+        android:layout_below="@+id/image_find_book"
         android:layout_marginTop="@dimen/dimen_16dp"
-        android:layout_below="@+id/image_find_book"/>
+        android:background="@color/colorPrimary"
+        android:hint="@string/hint_text"
+        android:inputType="textCapWords"
+        android:padding="@dimen/dimen_16dp"/>
     <Button
         android:id="@+id/search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/search_button"
-        android:background="@color/colorPrimary"
         android:layout_below="@+id/book_search_view"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dimen_16dp"/>
-
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/search_button"/>
 </RelativeLayout>
 
-    </ScrollView>
+</ScrollView>

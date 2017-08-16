@@ -69,6 +69,8 @@ public class DisplayBookListActivity extends AppCompatActivity implements Loader
         } else {
             // Hide loading indicator and show empty state view
             View progressIndicator = findViewById(R.id.loading_indicator);
+            progressIndicator.setVisibility(View.GONE);
+
             mEmptyStateTextView.setText(R.string.error_no_connection);
         }
         mAdapter = new BookListAdapter(this, new ArrayList<Book>());

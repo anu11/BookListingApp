@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/activity_height"
-    android:orientation="horizontal"
-    android:background="@color/tan_background">
+    android:background="@color/tan_background"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/imagethumbnail"
-        android:layout_width="@dimen/layout_width_110"
+        android:layout_width="@dimen/layout_width_110dp"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="@dimen/layout_margin_5dp"/>
@@ -15,19 +15,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="top"
-        android:orientation="vertical"
         android:layout_marginLeft="@dimen/dimen_10dp"
         android:layout_marginTop="@dimen/dimen_10dp"
         android:layout_toRightOf="@+id/imagethumbnail"
+        android:gravity="top"
+        android:orientation="vertical"
         >
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
             android:textColor="@color/colorTitle"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
         <TextView
@@ -43,9 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/author"
+            android:textColor="@color/colorTitle"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorTitle"/>
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </RelativeLayout>

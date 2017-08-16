@@ -11,7 +11,7 @@
 
     <dimen name="layout_height_50dp">50dp</dimen>
 
-    <dimen name="layout_width_110">110</dimen>
+    <dimen name="layout_width_110dp">110dp</dimen>
 
     <dimen name="layout_margin_5dp">5dp</dimen>
 </resources>
