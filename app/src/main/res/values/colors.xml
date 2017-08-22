@@ -4,9 +4,7 @@
     <color name="colorPrimaryDark">#a8b545</color>
     <color name="colorAccent">#a8b545</color>
     <color name="tan_background">#ffffff</color>
-
     <color name="colorEditText">#a8b545</color>
-
     <color name="colorTitle">#000000</color>
 
 </resources>

@@ -23,22 +23,18 @@ import java.util.List;
 
 public class DisplayBookListActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Book>> {
 
-    BookListAdapter mAdapter;
-    String mBookTitleSearched;
-
-    /**
-     * TextView that is displayed when the list is empty
-     */
-    private TextView mEmptyStateTextView;
-
     /**
      * URL for book data from the google api dataset
      */
     private static final String BASE_REQUEST_URL =
             "https://www.googleapis.com/books/v1/volumes?q=";
-
     private static final int BOOK_LOADER_ID = 1;
-
+    BookListAdapter mAdapter;
+    String mBookTitleSearched;
+    /**
+     * TextView that is displayed when the list is empty
+     */
+    private TextView mEmptyStateTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

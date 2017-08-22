@@ -17,8 +17,8 @@ import java.util.List;
  */
 
 public class BookListAdapter extends ArrayAdapter<Book> {
-
-    Bitmap imageIcon = null;
+    private Context context = getContext();
+    private Bitmap imageIcon = null;
     private List mBookList;
 
     public BookListAdapter(Context context, ArrayList<Book> bookList) {
@@ -26,36 +26,46 @@ public class BookListAdapter extends ArrayAdapter<Book> {
         mBookList = bookList;
     }
 
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
 
         View listItemView = convertView;
         if (listItemView == null) {
+            holder = new ViewHolder();
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.book_list_item, parent, false);
+            holder.bookTitle = (TextView) listItemView.findViewById(R.id.title);
+            holder.authorName = (TextView) listItemView.findViewById(R.id.author);
+            holder.priceBook = (TextView) listItemView.findViewById(R.id.price);
+            holder.bookImageLink = (ImageView) listItemView.findViewById(R.id.imagethumbnail);
+            listItemView.setTag(holder);
+        } else {
+            holder = (ViewHolder) listItemView.getTag();
         }
         Book newBook = getItem(position);
+        holder.bookTitle.setText(newBook.getmBookName());
 
-        TextView bookTitle = (TextView) listItemView.findViewById(R.id.title);
-        bookTitle.setText(newBook.getmBookName());
-
-        TextView authorName = (TextView) listItemView.findViewById(R.id.author);
         String authors = "";
         if (newBook.getmAuthorName() != null) {
             for (String athr : newBook.getmAuthorName()) {
                 authors += athr + " ,";
             }
             authors = authors.substring(0, authors.length() - 1);
-            authorName.setText(authors);
+            holder.authorName.setText(authors);
         }
-        TextView priceBook = (TextView) listItemView.findViewById(R.id.price);
+
         String price = newBook.getAmount().concat(" " + newBook.getCurrencyCode());
-
-        priceBook.setText(price);
-
-        ImageView imageLink = (ImageView) listItemView.findViewById(R.id.imagethumbnail);
-
-        imageLink.setImageBitmap(newBook.getImageBitmap());
+        holder.priceBook.setText(price);
+        holder.bookImageLink.setImageBitmap(newBook.getImageBitmap());
 
         return listItemView;
+    }
+
+    static class ViewHolder {
+        TextView bookTitle;
+        TextView authorName;
+        TextView priceBook;
+        ImageView bookImageLink;
     }
 }

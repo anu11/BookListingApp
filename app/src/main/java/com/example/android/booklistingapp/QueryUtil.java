@@ -25,11 +25,14 @@ import java.util.List;
  */
 
 public final class QueryUtil {
+    public static final int SUCCESSFUL_RESPONSE_CODE = 200;
+
     /**
      * Tag for the log messages
      */
     private static final String LOG_TAG = QueryUtil.class.getSimpleName();
 
+    //An empty private constructor so that the class is not going to be initialised.
     private QueryUtil() {
     }
 
@@ -86,7 +89,7 @@ public final class QueryUtil {
 
             // If the request was successful (response code 200),
             // then read the input stream and parse the response.
-            if (urlConnection.getResponseCode() == 200) {
+            if (urlConnection.getResponseCode() == SUCCESSFUL_RESPONSE_CODE) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
@@ -193,7 +196,6 @@ public final class QueryUtil {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
 
                 // Create a new {@link book} object
                 Book newBook = new Book(title, authorList, publishedDate, amount, currencyCode, imageIcon);

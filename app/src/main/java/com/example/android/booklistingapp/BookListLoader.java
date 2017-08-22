@@ -12,14 +12,12 @@ import java.util.List;
 public class BookListLoader extends AsyncTaskLoader<List<Book>> {
 
     private static final String LOG_TAG =  BookListLoader.class.getName();
-
     private String mUrl;
 
     public BookListLoader(Context context,String url) {
         super(context);
         mUrl = url;
     }
-
     @Override
     protected void onStartLoading() {
         forceLoad();
@@ -30,8 +28,6 @@ public class BookListLoader extends AsyncTaskLoader<List<Book>> {
         if (mUrl == null) {
             return null;
         }
-
-        List<Book> bookList = QueryUtil.fetchBookListeData(mUrl);
-        return bookList;
+        return QueryUtil.fetchBookListeData(mUrl);
     }
 }
